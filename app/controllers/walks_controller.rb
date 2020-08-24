@@ -75,8 +75,10 @@ class WalksController < ApplicationController
     @walk = Walk.find(params[:id])
     if params[:format] == "like"
       @walk.liked_by current_user
+      redirect_to :back
     elsif params[:format] == "unlike"
       @walk.unliked_by current_user
+      redirect_to :back
     end
   end
 
